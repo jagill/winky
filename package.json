@@ -1,0 +1,14 @@
+{
+  "name": "winky",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "semver": "~2.1.0",
+    "npm": "~1.2.30",
+    "async": "~0.2.9",
+    "underscore": "~1.5.1",
+    "commander": "~1.2.0"
+  },
+  "devDependencies": {}
+}

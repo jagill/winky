@@ -1,0 +1,31 @@
+#! /usr/bin/env coffee
+
+Winky = require './winky.coffee'
+semver = require 'semver'
+_path = require 'path'
+
+handleError = (error) ->
+  console.log "ERROR:", error
+  process.exit 1
+
+run = ->
+  program = require 'commander'
+  program.usage('[PROJECT_DIR]')
+    .parse(process.argv)
+
+  dir = _path.resolve (program.args && program.args[0]) or process.cwd()
+
+  winky = new Winky dir
+  winky.on 'error', (err) ->
+    handleError err
+
+  winky.load ->
+    winky.findCurrentVersions ->
+      winky.findInstalledVersions ->
+        for pkg, data of winky.deps
+          if data.latestVersion != data.installedVersion or !semver.satisfies(data.installedVersion, data.savedVersion)
+            console.log "#{pkg}: #{data.latestVersion} > #{data.installedVersion} (installed), #{data.savedVersion} (package)"
+        process.exit 0
+
+run()
+
