@@ -2,6 +2,23 @@
   "name": "winky",
   "version": "0.0.1",
   "private": false,
+  "description": "A utility to check if a project's npm packages are up to date.",
+  "keywords": [
+    "npm packages",
+    "version",
+    "outdated"
+  ],
+  "preferGlobal": true,
+  "homepage": "https://github.com/jagill/winky",
+  "author": {
+    "name": "James A. Gill",
+    "url": "https://github.com/jagill"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jagill/winky"
+  },
+  "license": "MIT",
   "dependencies": {
     "coffee-script": "1.6.3",
     "semver": "2.1.0",
