@@ -35,8 +35,11 @@ class Winky extends events.EventEmitter
   findInstalledVersions: (callback) =>
     findVersion = (pkg, cb) =>
       pkgInfoPath = _path.join @dir, 'node_modules', pkg, 'package.json'
-      pkgInfo = require pkgInfoPath
-      @deps[pkg].installedVersion = pkgInfo.version
+      try
+        pkgInfo = require pkgInfoPath
+        @deps[pkg].installedVersion = pkgInfo.version
+      catch e
+        #Might not be installed
       cb()
       
     async.each _.keys(@deps), findVersion, (err) =>

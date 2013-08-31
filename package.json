@@ -1,6 +1,6 @@
 {
   "name": "winky",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "A utility to check if a project's npm packages are up to date.",
   "keywords": [

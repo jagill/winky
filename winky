@@ -24,7 +24,7 @@ run = ->
       winky.findInstalledVersions ->
         for pkg, data of winky.deps
           if data.latestVersion != data.installedVersion or !semver.satisfies(data.installedVersion, data.savedVersion)
-            console.log "#{pkg}: #{data.latestVersion} > #{data.installedVersion} (installed), #{data.savedVersion} (package)"
+            console.log "#{pkg}: #{data.latestVersion} (available) > #{data.installedVersion} (installed), #{data.savedVersion} (package.json)"
         process.exit 0
 
 run()
